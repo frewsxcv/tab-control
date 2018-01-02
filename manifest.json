@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "tab-self-control",
+    "version": "1.0",
+    "description": "Adds a red border to all webpages matching mozilla.org.",
+    "icons": {},
+    "permissions": [
+        "tabs"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    }
+}
