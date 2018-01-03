@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "tab-self-control",
+    "name": "Tab Intervention",
     "version": "1.0",
-    "description": "Adds a red border to all webpages matching mozilla.org.",
+    "description": "Limit the number of tabs you can have open",
     "icons": {},
     "permissions": [
         "tabs"
