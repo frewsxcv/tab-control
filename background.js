@@ -14,7 +14,7 @@ const [browser, browserType] = getBrowser();
 
 browser.tabs.onCreated.addListener(tabId => {
     console.log(tabId);
-    getTabs((tabs) => {
+    getTabs(tabs => {
         const numTabsOpen = tabs.filter(tab => !tab.pinned).length;
         if (numTabsOpen > maxNumTabs) {
             const newTab = tabs.filter(tab => tab.active)[0];
