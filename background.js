@@ -24,7 +24,7 @@ browser.tabs.onCreated.addListener(tabId => {
 });
 
 const getTabs = callback => {
-    if (browserType === browserChrome) {
+    if (browserType === browserTypeChrome) {
         browser.tabs.query({}, tabs => callback(tabs));
     } else {
         browser.tabs.query({}).then(tabs => callback(tabs));
