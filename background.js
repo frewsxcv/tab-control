@@ -13,7 +13,7 @@ const maxNumTabs = 5;
 const [browser, browserType] = getBrowser();
 
 browser.tabs.onCreated.addListener(newTab => {
-    getTabs(tabs => {
+    getTabs().then(tabs => {
         const numTabsOpen = tabs.filter(tab => !tab.pinned).length;
         if (numTabsOpen > maxNumTabs) {
             browser.tabs.remove(newTab.id);
@@ -21,11 +21,14 @@ browser.tabs.onCreated.addListener(newTab => {
     });
 });
 
-const getTabs = callback => {
+const getTabs = () => {
     if (browserType === browserTypeChrome) {
-        browser.tabs.query({}, tabs => callback(tabs));
+        return new Promise((resolve, reject) => {
+            browser.tabs.query({}, tabs => {
+                resolve(tabs)
+            });
+        });
     } else {
-        browser.tabs.query({}).then(tabs => callback(tabs));
+        return browser.tabs.query({});
     }
 };
-;
