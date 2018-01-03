@@ -32,3 +32,7 @@ const getTabs = () => {
         return browser.tabs.query({});
     }
 };
+
+const getUnpinnedTabs = () => {
+    return getTabs().then(tabs => tabs.filter(tab => !tab.pinned));
+};
