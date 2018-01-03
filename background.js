@@ -9,7 +9,7 @@ const getBrowser = () => {
     }
 };
 
-const maxNumTabs = 5;
+const maxNumTabs = 10;
 const [browser, browserType] = getBrowser();
 
 browser.tabs.onCreated.addListener(newTab => {
