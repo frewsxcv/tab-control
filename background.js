@@ -12,12 +12,11 @@ const getBrowser = () => {
 const maxNumTabs = 5;
 const [browser, browserType] = getBrowser();
 
-browser.tabs.onCreated.addListener(tabId => {
+browser.tabs.onCreated.addListener(newTab => {
     getTabs(tabs => {
         const numTabsOpen = tabs.filter(tab => !tab.pinned).length;
         if (numTabsOpen > maxNumTabs) {
-            const newTab = tabs.filter(tab => tab.active)[0];
-            removeTab(newTab.id);
+            browser.tabs.remove(newTab.id);
         }
     });
 });
@@ -29,7 +28,4 @@ const getTabs = callback => {
         browser.tabs.query({}).then(tabs => callback(tabs));
     }
 };
-
-const removeTab = tabId => {
-    browser.tabs.remove(tabId);
-};
+;
