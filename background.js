@@ -35,13 +35,32 @@ browser.tabs.onRemoved.addListener(tabId => {
 
 browser.storage.onChanged.addListener(changes => {
     if (changes.hasOwnProperty(storageTabCountKey)) {
-        browser.storage.local.get(storageTabCountKey, items => {
-            browser.browserAction.setBadgeText({
-                text: items[storageTabCountKey].toString()
-            });
-        });
+        onTabCountChange();
     }
 });
+
+const onTabCountChange = newTabCount => {
+    getTabCountFromStorage().then(tabCount => {
+        browser.browserAction.setBadgeText({text: tabCount.toString()});
+    });
+};
+
+const getTabCountFromStorage = () => {
+    return localStorageGet(storageTabCountKey)
+        .then(results => results[storageTabCountKey]);
+};
+
+const localStorageGet = (keys) => {
+    if (browserType === browserTypeChrome) {
+        return new Promise((resolve, reject) => {
+            browser.storage.local.get(keys, results => {
+                resolve(results);
+            });
+        });
+    } else {
+        return browser.storage.local.get(keys);
+    }
+};
 
 const getTabs = () => {
     if (browserType === browserTypeChrome) {
