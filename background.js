@@ -1,6 +1,8 @@
 const browserTypeFirefox = 1;
 const browserTypeChrome = 2;
 
+const storageTabCountKey = 'tab-count';
+
 const getBrowser = () => {
     try {
         return [browser, browserTypeFirefox];
@@ -13,12 +15,32 @@ const maxNumTabs = 10;
 const [browser, browserType] = getBrowser();
 
 browser.tabs.onCreated.addListener(newTab => {
-    getTabs().then(tabs => {
-        const numTabsOpen = tabs.filter(tab => !tab.pinned).length;
-        if (numTabsOpen > maxNumTabs) {
+    getUnpinnedTabs().then(tabs => {
+        browser.storage.local.set({[storageTabCountKey]: tabs.length});
+        if (tabs.length > maxNumTabs) {
             browser.tabs.remove(newTab.id);
         }
     });
+});
+
+browser.tabs.onRemoved.addListener(tabId => {
+    // This listener can get fired before the tab is removed, so we'll need
+    // to explicitly filter out the removed tab.
+    getUnpinnedTabs()
+        .then(tabs => tabs.filter(tab => tab.id !== tabId))
+        .then(tabs => {
+            browser.storage.local.set({[storageTabCountKey]: tabs.length});
+        });
+})
+
+browser.storage.onChanged.addListener(changes => {
+    if (changes.hasOwnProperty(storageTabCountKey)) {
+        browser.storage.local.get(storageTabCountKey, items => {
+            browser.browserAction.setBadgeText({
+                text: items[storageTabCountKey].toString()
+            });
+        });
+    }
 });
 
 const getTabs = () => {
