@@ -19,7 +19,7 @@ browser.tabs.onCreated.addListener(newTab => {
         if (tabs.length > maxNumTabs) {
             browser.tabs.remove(newTab.id);
         }
-        browser.storage.local.set({[storageTabCountKey]: tabs.length});
+        setTabCountIntoStorage(tabs.length);
     });
 });
 
@@ -29,9 +29,7 @@ browser.tabs.onRemoved.addListener(tabId => {
     // into the new tab count.
     getUnpinnedTabs()
         .then(tabs => tabs.filter(tab => tab.id !== tabId))
-        .then(tabs => {
-            browser.storage.local.set({[storageTabCountKey]: tabs.length});
-        });
+        .then(tabs => setTabCountIntoStorage(tabs.length));
 })
 
 browser.storage.onChanged.addListener(changes => {
@@ -44,6 +42,10 @@ const onTabCountChange = newTabCount => {
     getTabCountFromStorage().then(tabCount => {
         browser.browserAction.setBadgeText({text: tabCount.toString()});
     });
+};
+
+const setTabCountIntoStorage = tabCount => {
+    browser.storage.local.set({[storageTabCountKey]: tabs.length});
 };
 
 const getTabCountFromStorage = () => {
