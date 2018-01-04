@@ -16,10 +16,10 @@ const [browser, browserType] = getBrowser();
 
 browser.tabs.onCreated.addListener(newTab => {
     getUnpinnedTabs().then(tabs => {
-        browser.storage.local.set({[storageTabCountKey]: tabs.length});
         if (tabs.length > maxNumTabs) {
             browser.tabs.remove(newTab.id);
         }
+        browser.storage.local.set({[storageTabCountKey]: tabs.length});
     });
 });
 
