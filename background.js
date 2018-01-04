@@ -25,7 +25,8 @@ browser.tabs.onCreated.addListener(newTab => {
 
 browser.tabs.onRemoved.addListener(tabId => {
     // This listener can get fired before the tab is removed, so we'll need
-    // to explicitly filter out the removed tab.
+    // to explicitly filter out the removed tab to make sure it's not factored
+    // into the new tab count.
     getUnpinnedTabs()
         .then(tabs => tabs.filter(tab => tab.id !== tabId))
         .then(tabs => {
