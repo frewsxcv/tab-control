@@ -5,7 +5,8 @@
     "description": "Limit the number of tabs you can have open",
     "icons": {
         "48": "icons/icon48.png",
-        "96": "icons/icon96.png"
+        "96": "icons/icon96.png",
+        "128": "icons/icon128.png"
     },
     "permissions": [
         "tabs",
@@ -13,5 +14,8 @@
     ],
     "background": {
         "scripts": ["background.js"]
+    },
+    "browser_action": {
+        "default_icon": "icons/icon128.png"
     }
 }
