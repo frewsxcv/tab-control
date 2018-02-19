@@ -112,5 +112,5 @@ const getUnpinnedTabs = () => {
 };
 
 browser.browserAction.setPopup({
-    popup: "options.html"
+    popup: "src/options.html"
 })
