@@ -15,11 +15,18 @@ const getBrowser = () => {
     }
 };
 
-const maxNumTabs = 10;
+const defaultTabLimit = 10;
+
+const tabLimitStorageKey = "tab-limit";
+
 const [browser, browserType] = getBrowser();
 
+const getMaxNumTabs = () => localStorageGet(tabLimitStorageKey).then(results => {
+    return results[tabLimitStorageKey] || defaultTabLimit;
+});
+
 browser.tabs.onCreated.addListener(newTab => {
-    getUnpinnedTabs().then(tabs => {
+    Promise.all([getUnpinnedTabs(), getMaxNumTabs()]).then(([tabs, maxNumTabs]) => {
         if (tabs.length > maxNumTabs) {
             browser.tabs.remove(newTab.id);
         }
@@ -44,21 +51,27 @@ browser.storage.onChanged.addListener(changes => {
 
 const onTabCountChange = newTabCount => {
     getTabCountFromStorage().then(tabCount => {
-        browser.browserAction.setBadgeBackgroundColor({
-            color: getBadgeBackgroundColor(tabCount),
-        });
         browser.browserAction.setBadgeText({text: tabCount.toString()});
+        getBadgeBackgroundColor(tabCount).then(backgroundColor => {
+            browser.browserAction.setBadgeBackgroundColor({
+                color: backgroundColor,
+            });
+        });
     });
 };
 
 const getBadgeBackgroundColor = tabCount => {
-    if (tabCount < maxNumTabs) {
-        return badgeBackgroundColorGrey;
-    } else if (tabCount === maxNumTabs) {
-        return badgeBackgroundColorYellow;
-    } else {
-        return badgeBackgroundColorRed;
-    }
+    return new Promise((resolve, reject) => {
+        getMaxNumTabs().then(maxNumTabs => {
+            if (tabCount < maxNumTabs) {
+                return resolve(badgeBackgroundColorGrey);
+            } else if (tabCount === maxNumTabs) {
+                return resolve(badgeBackgroundColorYellow);
+            } else {
+                return resolve(badgeBackgroundColorRed);
+            }
+        });
+    });
 }
 
 const setTabCountIntoStorage = tabCount => {
@@ -97,3 +110,7 @@ const getTabs = () => {
 const getUnpinnedTabs = () => {
     return getTabs().then(tabs => tabs.filter(tab => !tab.pinned));
 };
+
+browser.browserAction.setPopup({
+    popup: "options.html"
+})
