@@ -44,9 +44,11 @@ const setTabLimitInputValue = (v) => tabLimitInput().value = v;
 
 const saveOptions = (e) => {
     e.preventDefault();
-    browser.storage.local.set({
-        [tabLimitStorageKey]: tabLimitInput().value
-    });
+    const inputValue = tabLimitInput().value;
+    const newTabLimit = +inputValue > 0 ? +inputValue : defaultTabLimit;
+    browser.storage.local.set({[tabLimitStorageKey]: newTabLimit});
+    // if the user enters an invalid value, make sure the form reflects the default value
+    setTabLimitInputValue(newTabLimit);
 };
 
 const restoreOptions = () => getTabLimit().then(setTabLimitInputValue);
