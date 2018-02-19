@@ -30,7 +30,7 @@ const localStorageGet = (keys) => {
 const defaultTabLimit = 10;
 const tabLimitStorageKey = "tab-limit";
 const getTabLimit = () => localStorageGet(tabLimitStorageKey).then(results => {
-    return results[tabLimitStorageKey] || defaultTabLimit;
+    return +results[tabLimitStorageKey] || defaultTabLimit;
 });
 
 //
