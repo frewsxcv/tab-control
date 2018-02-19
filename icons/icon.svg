@@ -8,32 +8,32 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    data-name="Layer 1"
-   viewBox="0 0 100 100"
+   viewBox="0 0 80.000076 80.000077"
    x="0px"
    y="0px"
    version="1.1"
-   id="svg16"
-   sodipodi:docname="noun_1043489_cc.svg"
-   width="100"
-   height="100"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   inkscape:export-filename="/Users/corey/dev/tab-limit/icon/icon96.png"
-   inkscape:export-xdpi="92.160004"
-   inkscape:export-ydpi="92.160004">
+   id="svg14"
+   sodipodi:docname="icon.svg"
+   width="80.000076"
+   height="80.000076"
+   inkscape:export-filename="/Users/corey/dev/tab-limit/icons/icon128.png"
+   inkscape:export-xdpi="36"
+   inkscape:export-ydpi="36"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06">
   <metadata
-     id="metadata22">
+     id="metadata20">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>UPDATE</dc:title>
+        <dc:title>Artboard 13</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs20" />
+     id="defs18" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -43,33 +43,37 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1024"
-     inkscape:window-height="662"
-     id="namedview18"
+     inkscape:window-width="1660"
+     inkscape:window-height="1251"
+     id="namedview16"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="113.60149"
-     inkscape:cy="82.362001"
-     inkscape:window-x="215"
-     inkscape:window-y="63"
+     inkscape:pagecheckerboard="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="7.552"
+     inkscape:cx="53.607111"
+     inkscape:cy="40.379356"
+     inkscape:window-x="435"
+     inkscape:window-y="57"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg16" />
+     inkscape:current-layer="svg14" />
   <title
-     id="title2">UPDATE</title>
+     id="title2">Artboard 13</title>
   <path
-     d="M 45.66,10.5 H 12.5 a 2,2 0 0 0 -2,2 v 33.16 a 2,2 0 0 0 2,2 h 33.16 a 2,2 0 0 0 2,-2 V 12.5 a 2,2 0 0 0 -2,-2 z m -2,33.16 H 14.5 V 14.5 h 29.16 z"
+     d="M 59.530016,50.552538 V 8.9625381 a 3.08,3.08 0 0 0 -3.07,-3.08 H 3.0700163 a 3.07,3.07 0 0 0 -3.070000013312,3.08 V 50.552538 A 3.07,3.07 0 0 0 3.0700163,53.632538 H 56.460016 a 3.08,3.08 0 0 0 3.07,-3.08 z m -6.15,-3.08 H 6.1500163 v -35.51 H 53.380016 Z"
      id="path4"
+     style="fill:#23326a;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
      inkscape:connector-curvature="0" />
   <path
-     d="M 87.5,10.5 H 54.34 a 2,2 0 0 0 -2,2 v 33.16 a 2,2 0 0 0 2,2 H 87.5 a 2,2 0 0 0 2,-2 V 12.5 a 2,2 0 0 0 -2,-2 z m -2,33.16 H 56.34 V 14.5 H 85.5 Z"
+     d="m 76.920016,26.302538 a 3.09,3.09 0 0 0 -3.08,3.07 v 38.59 h -50.31 a 3.08,3.08 0 1 0 0,6.15 h 53.39 a 3.08,3.08 0 0 0 3.08,-3.1 v -41.64 a 3.09,3.09 0 0 0 -3.08,-3.07 z"
      id="path6"
+     style="fill:#23326a;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
      inkscape:connector-curvature="0" />
   <path
-     d="M 45.66,52.34 H 12.5 a 2,2 0 0 0 -2,2 V 87.5 a 2,2 0 0 0 2,2 h 33.16 a 2,2 0 0 0 2,-2 V 54.34 a 2,2 0 0 0 -2,-2 z m -2,33.16 H 14.5 V 56.34 h 29.16 z"
+     d="m 66.680016,63.852538 a 3.08,3.08 0 0 0 3.09,-3.07 v -41.63 a 3.08,3.08 0 1 0 -6.16,0 v 38.55 h -50.31 a 3.08,3.08 0 0 0 0,6.15 z"
      id="path8"
-     inkscape:connector-curvature="0" />
-  <path
-     d="M 87.5,68.92 H 72.92 V 54.34 a 2,2 0 0 0 -4,0 V 68.92 H 54.34 a 2,2 0 0 0 0,4 H 68.92 V 87.5 a 2,2 0 0 0 4,0 V 72.92 H 87.5 a 2,2 0 0 0 0,-4 z"
-     id="path10"
+     style="fill:#23326a;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
      inkscape:connector-curvature="0" />
 </svg>
