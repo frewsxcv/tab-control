@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "Tab Intervention",
+    "name": "Tab Control",
     "version": "1.0",
     "description": "Limit the number of tabs you can have open",
     "icons": {
