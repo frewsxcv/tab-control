@@ -79,16 +79,14 @@ const onTabCountChange = () => {
 };
 
 const getBadgeBackgroundColor = tabCount => {
-    return new Promise((resolve, reject) => {
-        getTabLimit().then(tabLimit => {
-            if (tabCount < tabLimit) {
-                return resolve(badgeBackgroundColorGrey);
-            } else if (tabCount === tabLimit) {
-                return resolve(badgeBackgroundColorYellow);
-            } else {
-                return resolve(badgeBackgroundColorRed);
-            }
-        });
+    return getTabLimit().then(tabLimit => {
+        if (tabCount < tabLimit) {
+            return badgeBackgroundColorGrey;
+        } else if (tabCount === tabLimit) {
+            return badgeBackgroundColorYellow;
+        } else {
+            return badgeBackgroundColorRed;
+        }
     });
 }
 
