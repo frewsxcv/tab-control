@@ -62,7 +62,7 @@ browser.tabs.onRemoved.addListener(tabId => {
 });
 
 browser.storage.onChanged.addListener(changes => {
-    if (changes.hasOwnProperty(storageTabCountKey)) {
+    if (changes.hasOwnProperty(storageTabCountKey) || changes.hasOwnProperty(tabLimitStorageKey)) {
         onTabCountChange();
     }
 });
