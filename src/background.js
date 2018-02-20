@@ -67,7 +67,7 @@ browser.storage.onChanged.addListener(changes => {
     }
 });
 
-const onTabCountChange = newTabCount => {
+const onTabCountChange = () => {
     getTabCountFromStorage().then(tabCount => {
         browser.browserAction.setBadgeText({text: tabCount.toString()});
         getBadgeBackgroundColor(tabCount).then(backgroundColor => {
