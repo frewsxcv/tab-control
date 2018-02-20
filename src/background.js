@@ -93,7 +93,7 @@ const getBadgeBackgroundColor = tabCount => {
 }
 
 const setTabCountIntoStorage = tabCount => {
-    browser.storage.local.set({[storageTabCountKey]: tabCount});
+    return browser.storage.local.set({[storageTabCountKey]: tabCount});
 };
 
 const getTabCountFromStorage = () => {
@@ -121,3 +121,7 @@ const getUnpinnedTabs = () => {
 browser.browserAction.setPopup({
     popup: "src/options.html"
 })
+
+getUnpinnedTabs()
+    .then(tabs => setTabCountIntoStorage(tabs.length))
+    .then(() => onTabCountChange());
