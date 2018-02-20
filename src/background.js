@@ -59,7 +59,7 @@ browser.tabs.onRemoved.addListener(tabId => {
     getUnpinnedTabs()
         .then(tabs => tabs.filter(tab => tab.id !== tabId))
         .then(tabs => setTabCountIntoStorage(tabs.length));
-})
+});
 
 browser.storage.onChanged.addListener(changes => {
     if (changes.hasOwnProperty(storageTabCountKey)) {
@@ -88,7 +88,7 @@ const getBadgeBackgroundColor = tabCount => {
             return badgeBackgroundColorRed;
         }
     });
-}
+};
 
 const setTabCountIntoStorage = tabCount => {
     return browser.storage.local.set({[storageTabCountKey]: tabCount});
