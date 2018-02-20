@@ -101,7 +101,6 @@ const getTabCountFromStorage = () => {
         .then(results => results[storageTabCountKey]);
 };
 
-
 const getTabs = () => {
     if (browserType === browserTypeChrome) {
         return new Promise((resolve, reject) => {
