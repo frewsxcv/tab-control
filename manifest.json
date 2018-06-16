@@ -13,7 +13,10 @@
         "storage"
     ],
     "background": {
-        "scripts": ["src/background.js"]
+        "scripts": [
+            "src/browser-polyfill.js",
+            "src/background.js"
+        ]
     },
     "options_ui": {
         "page": "src/options.html"

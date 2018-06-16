@@ -2,29 +2,8 @@
 // shared code - keep in-sync in options.js
 //
 
-const browserTypeFirefox = 1;
-const browserTypeChrome = 2;
-
-const getBrowser = () => {
-    try {
-        return [browser, browserTypeFirefox];
-    } catch(ReferenceError) {
-        return [chrome, browserTypeChrome];
-    }
-};
-
-const [browser, browserType] = getBrowser();
-
 const localStorageGet = (keys) => {
-    if (browserType === browserTypeChrome) {
-        return new Promise((resolve, reject) => {
-            browser.storage.local.get(keys, results => {
-                resolve(results);
-            });
-        });
-    } else {
-        return browser.storage.local.get(keys);
-    }
+    return browser.storage.local.get(keys);
 };
 
 const defaultTabLimit = 10;
@@ -100,15 +79,7 @@ const getTabCountFromStorage = () => {
 };
 
 const getTabs = () => {
-    if (browserType === browserTypeChrome) {
-        return new Promise((resolve, reject) => {
-            browser.tabs.query({}, tabs => {
-                resolve(tabs)
-            });
-        });
-    } else {
-        return browser.tabs.query({});
-    }
+    return browser.tabs.query({});
 };
 
 const getUnpinnedTabs = () => {
