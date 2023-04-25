@@ -6,7 +6,7 @@ const localStorageGet = (keys) => {
     return browser.storage.local.get(keys);
 };
 
-const defaultTabLimit = 10;
+const defaultTabLimit = 1;
 const tabLimitStorageKey = "tab-limit";
 const getTabLimit = () => localStorageGet(tabLimitStorageKey).then(results => {
     return +results[tabLimitStorageKey] || defaultTabLimit;
