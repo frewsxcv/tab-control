@@ -1,3 +1,5 @@
+**⚠️ This repository has moved to <https://tangled.org/rwell.org/tab-control> ⚠️**
+
 # Tab Control
 
 Cross-browser extension for limiting tabs.
